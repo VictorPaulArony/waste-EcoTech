@@ -19,7 +19,7 @@ var (
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/" || r.URL.Path == "/home" {
-		temp := template.Must(template.ParseFiles("templates/home.html"))
+		temp := template.Must(template.ParseFiles("templates/manufacturer.html"))
 		e := temp.Execute(w, nil)
 		if e != nil {
 			log.Fatalln("Internal server error")
@@ -30,7 +30,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 }
 func AddManufacturerItems(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		temp := template.Must(template.ParseFiles("templates/pro.html"))
+		temp := template.Must(template.ParseFiles("templates/.html"))
 		temp.Execute(w, nil)
 		return
 	} else if r.Method == http.MethodPost {

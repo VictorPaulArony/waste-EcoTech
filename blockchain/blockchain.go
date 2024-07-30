@@ -12,7 +12,7 @@ import (
 
 type Collection struct {
 	ID        int    `json:"id"`
-	Data      string `json:"data"`
+	Code      string `json:"code"`
 	TimeStamp string `json:"timestamp"`
 	PrevHash  string `json:"prevhash"`
 	Hash      string `json:"hash"`
@@ -32,7 +32,7 @@ type Blockchain struct {
 var fileName = "blocks.json"
 
 func CreateHash(col Collection) string {
-	res := strconv.Itoa(col.ID) + col.Data + col.TimeStamp + col.PrevHash + col.Hash
+	res := strconv.Itoa(col.ID) + col.Code + col.TimeStamp + col.PrevHash + col.Hash
 	hash := sha512.New()
 	hash.Write([]byte(res))
 	hashed := hash.Sum(nil)
@@ -44,14 +44,14 @@ func GenerateGenesis() Collection {
 	genesis.Hash = CreateHash(genesis)
 	return genesis
 }
-func (bc *Blockchain) AddBlock(data string) string {
+func (bc *Blockchain) AddBlock(code string) string {
 	bc.Lock()
 	defer bc.Unlock()
 
 	prevBlock := bc.collections[len(bc.collections)-1]
 	newCollection := Collection{
 		ID:        prevBlock.ID + 1,
-		Data:      data,
+		Code:      code,
 		TimeStamp: time.Now().String(),
 		PrevHash:  prevBlock.Hash,
 	}
