@@ -33,7 +33,7 @@
             margin: 0 auto;
         }
 
-        .form-container, .table-container {
+        .form-container {
             background-color: white;
             padding: 20px;
             margin-top: 20px;
@@ -41,7 +41,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .form-container h2, .table-container h2 {
+        .form-container h2 {
             color: #004d00;
         }
 
@@ -70,89 +70,6 @@
         .form-container button:hover {
             background-color: #003d00;
         }
-
-        .table-container table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .table-container th, .table-container td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-
-        .table-container th {
-            background-color: #004d00;
-            color: white;
-        }
-
-        .update-btn {
-            background-color: #004d00;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .update-btn:hover {
-            background-color: #003d00;
-        }
-
-        .collapsible {
-            background-color: #004d00;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 15px;
-        }
-
-        .active, .collapsible:hover {
-            background-color: #003d00;
-        }
-
-        .collapsible-content {
-            padding: 0 18px;
-            display: none;
-            overflow: hidden;
-            background-color: white;
-            margin-top: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .collapsible-content form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .collapsible-content label, .collapsible-content input, .collapsible-content button {
-            margin: 10px 0;
-        }
-
-        .collapsible-content input {
-            padding: 10px;
-            border: 1px solid #009688;
-            border-radius: 5px;
-        }
-
-        .collapsible-content button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #004d00;
-            color: white;
-            cursor: pointer;
-        }
-
-        .collapsible-content button:hover {
-            background-color: #003d00;
-        }
     </style>
 </head>
 <body>
@@ -175,143 +92,23 @@
 
             <button onclick="addBatch()">Add Batch</button>
         </div>
-
-        <button type="button" class="collapsible">Update Batch Entry</button>
-        <div class="collapsible-content">
-            <form id="update-form">
-                <label for="update-batch-name">Batch Name:</label>
-                <input type="text" id="update-batch-name" placeholder="Enter batch name" />
-
-                <label for="update-bottle-count">Number of Bottles:</label>
-                <input type="number" id="update-bottle-count" placeholder="Enter number of bottles" />
-
-                <label for="update-manufacturer-name">Manufacturer Name:</label>
-                <input type="text" id="update-manufacturer-name" placeholder="Enter manufacturer name" />
-
-                <label for="update-barcode">Barcode:</label>
-                <input type="text" id="update-barcode" placeholder="Enter barcode" />
-
-                <button type="button" onclick="updateBatch()">Update Batch</button>
-            </form>
-        </div>
-
-        <div class="table-container">
-            <h2>Manufactured Batches</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Batch Name</th>
-                        <th>Number of Bottles</th>
-                        <th>Date of Manufacture</th>
-                        <th>Manufacturer Name</th>
-                        <th>Barcode</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="batch-table-body">
-                    <!-- Batches will be appended here -->
-                </tbody>
-            </table>
-        </div>
     </div>
 
     <script>
-        function generateBarcode() {
-            return 'BRCD' + Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
-        }
-
         function addBatch() {
             const batchName = document.getElementById('batch-name').value;
             const bottleCount = document.getElementById('bottle-count').value;
             const manufacturerName = document.getElementById('manufacturer-name').value;
-            const barcode = generateBarcode();
             const dateOfManufacture = new Date().toLocaleDateString();
 
             if (batchName && bottleCount && manufacturerName) {
-                const tableBody = document.getElementById('batch-table-body');
-                const row = document.createElement('tr');
-
-                const batchNameCell = document.createElement('td');
-                batchNameCell.textContent = batchName;
-
-                const bottleCountCell = document.createElement('td');
-                bottleCountCell.textContent = bottleCount;
-
-                const dateOfManufactureCell = document.createElement('td');
-                dateOfManufactureCell.textContent = dateOfManufacture;
-
-                const manufacturerNameCell = document.createElement('td');
-                manufacturerNameCell.textContent = manufacturerName;
-
-                const barcodeCell = document.createElement('td');
-                barcodeCell.textContent = barcode;
-
-                const actionCell = document.createElement('td');
-                const updateBtn = document.createElement('button');
-                updateBtn.textContent = 'Update';
-                updateBtn.className = 'update-btn';
-                updateBtn.onclick = () => populateUpdateForm(row);
-                actionCell.appendChild(updateBtn);
-
-                row.appendChild(batchNameCell);
-                row.appendChild(bottleCountCell);
-                row.appendChild(dateOfManufactureCell);
-                row.appendChild(manufacturerNameCell);
-                row.appendChild(barcodeCell);
-                row.appendChild(actionCell);
-
-                tableBody.appendChild(row);
-
+                alert('Batch added successfully!');
                 document.getElementById('batch-name').value = '';
                 document.getElementById('bottle-count').value = '';
                 document.getElementById('manufacturer-name').value = '';
             } else {
                 alert('Please enter batch name, number of bottles, and manufacturer name.');
             }
-        }
-
-        function populateUpdateForm(row) {
-            const cells = row.getElementsByTagName('td');
-            document.getElementById('update-batch-name').value = cells[0].textContent;
-            document.getElementById('update-bottle-count').value = cells[1].textContent;
-            document.getElementById('update-manufacturer-name').value = cells[3].textContent;
-            document.getElementById('update-barcode').value = cells[4].textContent;
-            rowToUpdate = row;
-        }
-
-        function updateBatch() {
-            const batchName = document.getElementById('update-batch-name').value;
-            const bottleCount = document.getElementById('update-bottle-count').value;
-            const manufacturerName = document.getElementById('update-manufacturer-name').value;
-            const barcode = document.getElementById('update-barcode').value;
-
-            if (batchName && bottleCount && manufacturerName && barcode) {
-                const cells = rowToUpdate.getElementsByTagName('td');
-                cells[0].textContent = batchName;
-                cells[1].textContent = bottleCount;
-                cells[3].textContent = manufacturerName;
-
-                document.getElementById('update-form').reset();
-                rowToUpdate = null;
-            } else {
-                alert('Please enter batch name, number of bottles, manufacturer name, and barcode.');
-            }
-        }
-
-        let rowToUpdate = null;
-
-        const collapsibles = document.getElementsByClassName("collapsible");
-
-        for (let i = 0; i < collapsibles.length; i++) {
-            collapsibles[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                const content = this.nextElementSibling;
-                if (content.style.display === "block") {
-                    content.style.display = "none";
-                } else {
-                    content.style.display = "block";
-                }
-            });
         }
     </script>
 </body>
