@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f8f0;
+}
+
+.form-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #00468c;
+  color: #ffffff;
+}
+
+td img {
+  max-width: 100%;
+  height: auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #00468c;
+  color: #ffffff;
+  font-size: 1em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #6694ba;
+}
+
+.item-box {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.item-box h3 {
+  color: #00468c;
+  margin-bottom: 10px;
+}
+
+.item-box p {
+  color: #333;
+  font-size: 1em;
+}
+
+.item-count {
+  font-weight: bold;
+  color: #00468c;
+}
+.items {
+  margin-left: 20px;
+}
+@media screen and (max-width: 600px) {
+  .form-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    margin-bottom: 15px;
+  }
+
+  th,
+  td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  th::before,
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  th,
+  td {
+    text-align: left;
+  }
+}

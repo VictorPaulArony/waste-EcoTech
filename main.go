@@ -21,4 +21,19 @@ func main() {
 
 	log.Println("server running at : http://localhost:1234")
 	http.ListenAndServe(":1234", nil)
+
+
+func AdBlock(w http.ResponseWriter, r *http.Request) {
+	// Create a new blockchain
+	bc :=&o.Blockchain{}
+	// Create the genesis block
+	genesisBlock := o.NewGenesisBlock()
+	bc.Blocks = append(bc.Blocks, genesisBlock)
+
+	// Add additional blocks (replace with your desired data)
+	bc.AddBlock("Send 1 BTC to Alice")
+	bc.AddBlock("Send 2 ETH to Bob")
+
+	// Print the blockchain
+	bc.PrintChain()
 }

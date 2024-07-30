@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="static/segregation.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Goods produced and their QR codes</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Producer</th>
+            <th>Item</th>
+            <th>QR Code</th>
+            <th>Created At</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Producer</td>
+            <td>Item Name</td>
+            <td>QR Code</td>
+            <td>Date</td>
+            <td>Status</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Add New Item To The Collected Items</h2>
+      <form action="/resident-dashboard" method="POST">
+        <div class="form-group">
+          <label for="item">Item:</label>
+          <input type="text" id="item" name="type" required />
+        </div>
+        <div class="form-group">
+          <label for="qrcode">QR Code:</label>
+          <input type="text" id="qrcode" name="code" required />
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="items">
+      <div class="item-box">
+        <h3>Item</h3>
+        <p>Number of Collected Items: <span class="item-count">10</span></p>
+      </div>
+    </div>
+  </body>
+</html>
