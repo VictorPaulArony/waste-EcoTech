@@ -5,16 +5,16 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	"strconv"
 	"sync"
 	"time"
-	"waste-EcoTrack/blockchain"
-	"waste-EcoTrack/database"
+	"waste-EcoTech/database"
+	// "waste-EcoTrack/blockchain"
+	// "waste-EcoTrack/database"
 )
 
 var (
-	muSync    sync.Mutex
-	recycles  []database.Recycle
+	muSync   sync.Mutex
+	recycles []database.Recycle
 )
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
@@ -27,6 +27,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
+}
 func AddManufacturerItems(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
 		temp := template.Must(template.ParseFiles("templates/pro.html"))
@@ -37,7 +38,7 @@ func AddManufacturerItems(w http.ResponseWriter, r *http.Request) {
 		defer muSync.Unlock()
 		r.ParseForm()
 		request := database.Recycle{
-			ID:        len(requests) + 1,
+			ID:        len(recycles) + 1,
 			Producer:  r.FormValue("producer"),
 			Type:      r.FormValue("type"),
 			Code:      r.FormValue("code"),
@@ -46,7 +47,7 @@ func AddManufacturerItems(w http.ResponseWriter, r *http.Request) {
 		}
 		recycles = append(recycles, request)
 
-		if err := database.SaveRecylce(recycles); err != nil {
+		if err := database.SaveRecycle(recycles); err != nil {
 			http.Error(w, "Error Saving the Request", http.StatusInternalServerError)
 			return
 		}
