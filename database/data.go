@@ -7,11 +7,10 @@ import (
 
 type Recycle struct {
 	ID        int    `json:"id"`
-	Producer  string `json:"producer"`
-	Type      string `json:"type"`
-	Code      string `json:"code"`
+	Producer  string `json:"batch-name"`
+	Type      string `json:"bottle-count"`
+	Code      string `json:"manufacturer-name"`
 	CreatedAt string `json:"created_at"`
-	Status    string `json:"status"`
 }
 
 var (

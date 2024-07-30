@@ -30,7 +30,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 }
 func AddManufacturerItems(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		temp := template.Must(template.ParseFiles("templates/.html"))
+		temp := template.Must(template.ParseFiles("templates/manufacturer.html"))
 		temp.Execute(w, nil)
 		return
 	} else if r.Method == http.MethodPost {
@@ -39,14 +39,13 @@ func AddManufacturerItems(w http.ResponseWriter, r *http.Request) {
 		r.ParseForm()
 		request := database.Recycle{
 			ID:        len(recycles) + 1,
-			Producer:  r.FormValue("producer"),
-			Type:      r.FormValue("type"),
-			Code:      r.FormValue("code"),
+			Producer:  r.FormValue("batch-name"),
+			Type:      r.FormValue("bottle-count"),
+			Code:      r.FormValue("manufacturer-name"),
 			CreatedAt: time.Now().String(),
-			Status:    "Pending",
 		}
 		recycles = append(recycles, request)
-
+println("data")
 		if err := database.SaveRecycle(recycles); err != nil {
 			http.Error(w, "Error Saving the Request", http.StatusInternalServerError)
 			return

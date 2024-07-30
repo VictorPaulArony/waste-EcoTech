@@ -17,7 +17,7 @@ func main() {
 	// http.HandleFunc("/staff-register", handlers.StaffRegistrationHandler)
 	// http.HandleFunc("/staff-login", handlers.StaffLoginHandler)
 	// http.HandleFunc("/company-dashboard", handlers.StaffDshboardHandler)
-	//http.HandleFunc("/resident-dash", handlers.)
+	http.HandleFunc("/pro-dashboard", handlers.AddManufacturerItems)
 
 	log.Println("server running at : http://localhost:1234")
 	http.ListenAndServe(":1234", nil)
