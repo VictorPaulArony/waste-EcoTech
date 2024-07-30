@@ -45,7 +45,7 @@ func AddManufacturerItems(w http.ResponseWriter, r *http.Request) {
 			CreatedAt: time.Now().String(),
 		}
 		recycles = append(recycles, request)
-println("data")
+		println("data")
 		if err := database.SaveRecycle(recycles); err != nil {
 			http.Error(w, "Error Saving the Request", http.StatusInternalServerError)
 			return
@@ -63,4 +63,7 @@ func ViewRecyclesHandler(w http.ResponseWriter, r *http.Request) {
 		log.Fatalln("Internal server error:", err)
 		http.Error(w, "Internal server error", http.StatusInternalServerError)
 	}
+}
+func CollectionProcessing(w http.ResponseWriter, r *http.Request) {
+
 }
