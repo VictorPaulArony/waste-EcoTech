@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dowmload Certificate</title>
+</head>
+<body>
+    <div class="form-container">
+    <h2>your collections</h2>
+    <form action="/view" method="POST">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>producer</th>
+                <th>type</th>
+                <th>Code</th>
+                <th>Created At</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .}}
+            <tr>
+                <td>{{.ID}}</td>
+                <td>{{.Producer}}</td>
+                <td>{{.Type}}</td>
+                <td>{{.Code}}</td>
+                <td>{{.CreatedAt}}</td>
+                <td>{{.Status}}</td>
+                <td>
+                    {{if eq .Status "Pending"}}
+                    <a href="/collection?id={{.ID}}">Process</a>
+                    {{end}}c
+                </td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+    </form>
+    <a href="/">  Dashboard</a>
+</body>
+</html>

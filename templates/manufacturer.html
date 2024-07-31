@@ -93,26 +93,12 @@
             <input type="text" id="manufacturer-name" placeholder="Enter manufacturer name" name="manufacturer-name"/>
 
             <button type="submit">Add Batch</button>
+            <button ><a href="view-data">view data</a></button>
             </form>
+
         </div>
     </div>
 
-    <script>
-        function addBatch() {
-            const batchName = document.getElementById('batch-name').value;
-            const bottleCount = document.getElementById('bottle-count').value;
-            const manufacturerName = document.getElementById('manufacturer-name').value;
-            const dateOfManufacture = new Date().toLocaleDateString();
 
-            if (batchName && bottleCount && manufacturerName) {
-                alert('Batch added successfully!');
-                document.getElementById('batch-name').value = '';
-                document.getElementById('bottle-count').value = '';
-                document.getElementById('manufacturer-name').value = '';
-            } else {
-                alert('Please enter batch name, number of bottles, and manufacturer name.');
-            }
-        }
-    </script>
 </body>
 </html>

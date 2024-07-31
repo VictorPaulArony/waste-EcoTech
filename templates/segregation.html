@@ -16,28 +16,29 @@
             <th>Item</th>
             <th>QR Code</th>
             <th>Created At</th>
-            <th>Status</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Producer</td>
-            <td>Item Name</td>
-            <td>QR Code</td>
-            <td>Date</td>
-            <td>Status</td>
+          {{range .}}
+          <tr>
+            <td name="Producer">{{.Producer}}</td>
+            <td name="Type">{{.Type}}</td>
+            <td name="Code">{{.Code}}</td>
+            <td name="CreatedAt">{{.CreatedAt}}</td>
           </tr>
+          {{end}}
         </tbody>
       </table>
 
       <h2>Add New Item To The Collected Items</h2>
-      <form action="/resident-dashboard" method="POST">
+      <form action="/segregation" method="POST">
         <div class="form-group">
           <label for="item">Item:</label>
           <input type="text" id="item" name="type" required />
         </div>
         <div class="form-group">
-          <label for="qrcode">QR Code:</label>
+          <label for="qrcode">Code:</label>
           <input type="text" id="qrcode" name="code" required />
         </div>
 
