@@ -209,6 +209,7 @@ func CollectionProcessing(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error saving certificates", http.StatusInternalServerError)
 		return
 	}
+	http.Redirect(w, r, "/view-data", http.StatusSeeOther)
 }
 
 func RequestCollection(w http.ResponseWriter, r *http.Request) {
