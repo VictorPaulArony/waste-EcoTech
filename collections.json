@@ -1,50 +1,18 @@
 [
   {
     "id": 1,
-    "producer": "ddd",
-    "type": "12",
-    "code": "dd",
-    "timestamp": "2024-07-31 09:23:17.058002665 +0300 EAT m=+56.953364125",
+    "producer": "coco",
+    "type": "1",
+    "code": "coco",
+    "timestamp": "2024-07-31 12:06:31.1932512 +0300 EAT m=+88.510513801",
     "status": "Completed"
   },
   {
     "id": 2,
-    "producer": "BOT",
-    "type": "12",
-    "code": "VAL",
-    "timestamp": "2024-07-31 09:34:22.183071254 +0300 EAT m=+722.078432622",
-    "status": "Completed"
-  },
-  {
-    "id": 3,
-    "producer": "",
-    "type": "",
-    "code": "",
-    "timestamp": "2024-07-31 09:35:30.640127699 +0300 EAT m=+790.535489128",
-    "status": "Completed"
-  },
-  {
-    "id": 4,
-    "producer": "300ml",
-    "type": "2000",
-    "code": "Kanga Bottlers",
-    "timestamp": "2024-07-31 10:04:36.675715051 +0300 EAT m=+2536.571076466",
-    "status": "Completed"
-  },
-  {
-    "id": 5,
-    "producer": "500ml bottle",
-    "type": "289",
-    "code": "Victor Bottlers",
-    "timestamp": "2024-07-31 10:12:41.918860519 +0300 EAT m=+3021.814221928",
-    "status": "Completed"
-  },
-  {
-    "id": 6,
-    "producer": "500ml bottle",
-    "type": "400",
-    "code": "Shikuku Trio",
-    "timestamp": "2024-07-31 10:18:25.074480233 +0300 EAT m=+3364.969841672",
+    "producer": "omo",
+    "type": "1",
+    "code": "omo",
+    "timestamp": "2024-07-31 12:07:15.2847113 +0300 EAT m=+132.601973901",
     "status": "Completed"
   }
 ]

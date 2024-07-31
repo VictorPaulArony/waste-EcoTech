@@ -1,64 +1,19 @@
 [
   {
     "id": 1,
-    "batch-name": "ddd",
-    "bottle-count": "12",
-    "manufacturer-name": "dd",
-    "created_at": "2024-07-31 09:23:08.392289836 +0300 EAT m=+48.287651263",
+    "batch-name": "coco",
+    "bottle-count": "1",
+    "manufacturer-name": "coco",
+    "created_at": "2024-07-31 12:06:26.9250875 +0300 EAT m=+84.242350101",
     "status": "Completed",
     "hash": ""
   },
   {
     "id": 2,
-    "batch-name": "BOT",
-    "bottle-count": "12",
-    "manufacturer-name": "VAL",
-    "created_at": "2024-07-31 09:34:17.049396629 +0300 EAT m=+716.944758058",
-    "status": "Completed",
-    "hash": ""
-  },
-  {
-    "id": 3,
-    "batch-name": "",
-    "bottle-count": "",
-    "manufacturer-name": "",
-    "created_at": "2024-07-31 09:35:18.099135766 +0300 EAT m=+777.994497152",
-    "status": "Completed",
-    "hash": ""
-  },
-  {
-    "id": 4,
-    "batch-name": "300ml",
-    "bottle-count": "2000",
-    "manufacturer-name": "Kanga Bottlers",
-    "created_at": "2024-07-31 10:01:22.809185339 +0300 EAT m=+2342.704546713",
-    "status": "Completed",
-    "hash": ""
-  },
-  {
-    "id": 5,
-    "batch-name": "500ml bottle",
-    "bottle-count": "289",
-    "manufacturer-name": "Victor Bottlers",
-    "created_at": "2024-07-31 10:11:56.639053339 +0300 EAT m=+2976.534414710",
-    "status": "Completed",
-    "hash": ""
-  },
-  {
-    "id": 6,
-    "batch-name": "500ml bottle",
-    "bottle-count": "400",
-    "manufacturer-name": "Shikuku Trio",
-    "created_at": "2024-07-31 10:14:55.355088606 +0300 EAT m=+3155.250450057",
-    "status": "Completed",
-    "hash": ""
-  },
-  {
-    "id": 7,
-    "batch-name": "",
-    "bottle-count": "",
-    "manufacturer-name": "",
-    "created_at": "2024-07-31 10:30:40.485192546 +0300 EAT m=+4100.380553930",
+    "batch-name": "omo",
+    "bottle-count": "1",
+    "manufacturer-name": "omo",
+    "created_at": "2024-07-31 12:07:08.1948195 +0300 EAT m=+125.512082101",
     "status": "Pending",
     "hash": ""
   }
