@@ -20,7 +20,7 @@ var (
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/" || r.URL.Path == "/home" {
-		temp := template.Must(template.ParseFiles("templates/manufacturer.html"))
+		temp := template.Must(template.ParseFiles("templates/index.html"))
 		if err := temp.Execute(w, nil); err != nil {
 			log.Fatalln("Internal server error")
 			fmt.Fprint(w, "Oops, something went wrong")
@@ -75,7 +75,7 @@ func AddManufacturerItems(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		http.Redirect(w, r, "/home", http.StatusFound)
+		http.Redirect(w, r, "/view-data", http.StatusFound)
 		return
 	}
 }

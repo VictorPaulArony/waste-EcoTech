@@ -3,43 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dowmload Certificate</title>
+    <title>COLLECTION</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7e9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            padding-top: 20px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 1200px;
+            box-sizing: border-box;
+        }
+        h2 {
+            margin-top: 0;
+            text-align: center;
+            color: #2e7d32;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #a5d6a7;
+            color: #2e7d32;
+        }
+        tr:nth-child(even) {
+            background-color: #f1f8e9;
+        }
+        tr:hover {
+            background-color: #c8e6c9;
+        }
+        a {
+            color: #2e7d32;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .dashboard-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="form-container">
-    <h2>your collections</h2>
-    <form action="/view" method="POST">
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>producer</th>
-                <th>type</th>
-                <th>Code</th>
-                <th>Created At</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{range .}}
-            <tr>
-                <td>{{.ID}}</td>
-                <td>{{.Producer}}</td>
-                <td>{{.Type}}</td>
-                <td>{{.Code}}</td>
-                <td>{{.CreatedAt}}</td>
-                <td>{{.Status}}</td>
-                <td>
-                    {{if eq .Status "Pending"}}
-                    <a href="/collection?id={{.ID}}">Process</a>
-                    {{end}}c
-                </td>
-            </tr>
-            {{end}}
-        </tbody>
-    </table>
-    </form>
-    <a href="/">  Dashboard</a>
+        <h2>Your Collections</h2>
+        <form action="/view" method="POST">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Qty</th>
+                        <th>Poducer</th>
+                        <th>Created At</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .}}
+                    <tr>
+                        <td>{{.ID}}</td>
+                        <td>{{.Producer}}</td>
+                        <td>{{.Type}}</td>
+                        <td>{{.Code}}</td>
+                        <td>{{.CreatedAt}}</td>
+                        <td>{{.Status}}</td>
+                        <td>
+                            {{if eq .Status "Pending"}}
+                            <a href="/collection?id={{.ID}}">Process</a>
+                            {{end}}
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </form>
+        <a class="dashboard-link" href="/">Dashboard</a>
+    </div>
 </body>
 </html>
